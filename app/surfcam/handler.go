@@ -14,7 +14,7 @@ func GetCamByID(c *gin.Context) {
 	defer session.Close()
 
 	spotid, err := strconv.ParseInt(c.Param("id"), 10, 64)
-	col := session.DB("surfcam").C("webcams")
+	col := session.DB("").C("webcams")
 	result := SurfCam{}
 	err = col.Find(bson.M{"spotid": spotid}).One(&result)
 	if err != nil {

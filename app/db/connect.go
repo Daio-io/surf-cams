@@ -10,7 +10,6 @@ var connectionString = getConnectionString()
 
 // Connect to database - returns a session
 func Connect() *mgo.Session {
-
 	session, err := mgo.Dial(connectionString)
 	if err != nil {
 		panic(err)
@@ -21,7 +20,7 @@ func Connect() *mgo.Session {
 func getConnectionString() string {
 	connectionString := os.Getenv("DB_CONNECTION")
 	if len(strings.TrimSpace(connectionString)) == 0 {
-		connectionString = "mongodb://localhost/"
+		connectionString = "mongodb://localhost/surfcam"
 	}
 	return connectionString
 }
