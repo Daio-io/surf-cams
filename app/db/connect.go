@@ -3,7 +3,6 @@ package db
 import (
 	"gopkg.in/mgo.v2"
 	"os"
-	"strings"
 )
 
 var connectionString = getConnectionString()
@@ -19,7 +18,7 @@ func Connect() *mgo.Session {
 
 func getConnectionString() string {
 	connectionString := os.Getenv("DB_CONNECTION")
-	if len(strings.TrimSpace(connectionString)) == 0 {
+	if connectionString == "" {
 		connectionString = "mongodb://localhost/surfcam"
 	}
 	return connectionString
