@@ -2,20 +2,15 @@ package surfcam
 
 import (
 	"github.com/gin-gonic/gin"
-	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"strconv"
+	"surf-cams/app/db"
 )
-
-var connectionString = "mongodb://localhost/"
 
 // GetCamByID handler
 func GetCamByID(c *gin.Context) {
 
-	session, err := mgo.Dial(connectionString)
-	if err != nil {
-		panic(err)
-	}
+	session := db.Connect()
 	defer session.Close()
 
 	spotid, err := strconv.ParseInt(c.Param("id"), 10, 64)
@@ -25,7 +20,7 @@ func GetCamByID(c *gin.Context) {
 	if err != nil {
 		c.JSON(200, gin.H{"status": "not found"})
 	} else {
-		c.JSON(200, &result)
+		c.JSON(200, gin.H{"status": "success", "response": &result})
 	}
 
 }
