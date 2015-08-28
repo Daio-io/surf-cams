@@ -1,3 +1,3 @@
 # surf-cams
 
-An API to get WebCam feed to Beaches
+An API to get MagicSeaweed webcam feed links
