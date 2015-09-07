@@ -1,11 +1,11 @@
 package db
 
 import (
+	"surf-cams/app/utils"
 	"gopkg.in/mgo.v2"
-	"os"
 )
 
-var connectionString = getConnectionString()
+var connectionString = utils.GetDBConnectionString()
 
 // Connect to database - returns a session
 func Connect() *mgo.Session {
@@ -14,12 +14,4 @@ func Connect() *mgo.Session {
 		panic(err)
 	}
 	return session
-}
-
-func getConnectionString() string {
-	connectionString := os.Getenv("DB_CONNECTION")
-	if connectionString == "" {
-		connectionString = "mongodb://localhost/surfcam"
-	}
-	return connectionString
 }

@@ -1,10 +1,10 @@
 package surfcam
 
 import (
-	"github.com/gin-gonic/gin"
-	"gopkg.in/mgo.v2/bson"
 	"strconv"
 	"surf-cams/app/db"
+	"github.com/gin-gonic/gin"
+	"gopkg.in/mgo.v2/bson"
 )
 
 // GetCamByID handler

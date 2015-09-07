@@ -1,12 +1,10 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"os"
 	"surf-cams/app/surfcam"
+	"surf-cams/app/utils"
+	"github.com/gin-gonic/gin"
 )
-
-var port = getPort()
 
 func main() {
 	router := gin.Default()
@@ -14,13 +12,5 @@ func main() {
 	router.GET("/status", func(c *gin.Context) {
 		c.String(200, "OK")
 	})
-	router.Run(":" + port)
-}
-
-func getPort() string {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "9999"
-	}
-	return port
+	router.Run(":" + utils.GetPort())
 }
