@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"surf-cams/app/surfcam"
 	"surf-cams/app/utils"
-	"github.com/gin-gonic/gin"
 )
 
 func main() {

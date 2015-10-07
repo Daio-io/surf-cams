@@ -1,8 +1,8 @@
 package db
 
 import (
-	"surf-cams/app/utils"
 	"gopkg.in/mgo.v2"
+	"surf-cams/app/utils"
 )
 
 var connectionString = utils.GetDBConnectionString()
